@@ -1,6 +1,13 @@
 import "./style.css";
+import { Histogram } from "./histogram";
+import unemployment from "./unemployment";
 
-document.querySelector("#app").innerHTML = `
-  <h1>Hello Vite!</h1>
-  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
-`;
+const chart = Histogram(unemployment, {
+  value: (d) => d.rate,
+  label: "Unemployment rate (%) →",
+  width: 1024,
+  height: 800,
+  color: "steelblue",
+});
+
+document.querySelector("#app").appendChild(chart);
